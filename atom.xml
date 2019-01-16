@@ -5,9 +5,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https%20://04071011.xyz/"/>
-  <updated>2019-01-15T16:24:26.643Z</updated>
-  <id>https ://04071011.xyz/</id>
+  <link href="https://04071011.xyz/"/>
+  <updated>2019-01-15T16:24:26.642Z</updated>
+  <id>https://04071011.xyz/</id>
   
   <author>
     <name>Simone</name>
@@ -17,34 +17,9 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>test_my_site</title>
-    <link href="https%20://04071011.xyz/2019/01/15/test-my-site/"/>
-    <id>https ://04071011.xyz/2019/01/15/test-my-site/</id>
-    <published>2019-01-15T15:53:20.000Z</published>
-    <updated>2019-01-15T16:24:26.643Z</updated>
-    
-    <content type="html"><![CDATA[<script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;script&gt;
-        document.querySelectorAll(&#39;.github-emoji&#39;)
-          .forEach(el =&gt; {
-            if (!el.dataset.src) { return; }
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>Hello World</title>
-    <link href="https%20://04071011.xyz/2019/01/15/hello-world/"/>
-    <id>https ://04071011.xyz/2019/01/15/hello-world/</id>
+    <link href="https://04071011.xyz/2019/01/15/hello-world/"/>
+    <id>https://04071011.xyz/2019/01/15/hello-world/</id>
     <published>2019-01-15T15:39:05.459Z</published>
     <updated>2019-01-15T16:24:26.642Z</updated>
     
