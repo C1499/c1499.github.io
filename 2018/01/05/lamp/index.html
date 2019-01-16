@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>CentOS 7上搭建LAMP | Stage : One ? Two</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="">
+    <meta name="description" content="之前在Windows上用过wamp，很简单跟其他的软件一样只要安装下一步下一步即可。当然，很早就知道LAMP这个组合了，今天刚好有需要，就按照网上的教程搭建了一番，也是很简单。另外想说下，很感谢互联网，感谢这些开源的软件，让更多的人都能够学习。LAMP顾名思义，指的是Linux，Apache，MySQL，PHP，在Linux上不像windows上有那种集成的软件，需要一一安装。
+搭建Apache安装Apache非常的简单。1.yum install httpd //安装httpd，也就是软件apache2.systemctl start httpd.service //启动服务3.systemctl enable htt...">
+    
+        <link rel="icon" href="/favicon.ico">
+    
+    
+        
+            <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+        
+            <link rel="stylesheet" href="/css/stage.css">
+        
+            <link rel="stylesheet" href="/css/avatar-bg.css">
+        
+    
+</head>
+
+<body>
+<header id="header">
+    <div class="menu">
+        <i class="fa fa-bars"></i>
+    </div>
+    <div class="header-main">
+        <h1><a href="/">Stage : One ? Two</a></h1>
+    </div>
+    <div id="nav">
+        <div class="nav-img" id="nav-img"></div>
+        <div class="sentences">
+            How goes the world with you?
+        </div>
+    </div>
+</header>
+
+<div id="content-outer">
+    <div id="content-inner">
+        <div class="clearfix">
+    <article id="post">
+        <h1>CentOS 7上搭建LAMP</h1>
+        <div class="create">
+            <span>创建于</span>
+            
+                <time datetime="2018-01-05T07:50:33.000Z">
+                    2018-01-05
+                </time>
+            
+            <ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a></li></ul>
+        </div>
+        <p>之前在Windows上用过wamp，很简单跟其他的软件一样只要安装下一步下一步即可。当然，很早就知道LAMP这个组合了，今天刚好有需要，就按照网上的教程搭建了一番，也是很简单。另外想说下，很感谢互联网，感谢这些开源的软件，让更多的人都能够学习。LAMP顾名思义，指的是Linux，Apache，MySQL，PHP，在Linux上不像windows上有那种集成的软件，需要一一安装。<br><a id="more"></a></p>
+<h2 id="搭建Apache"><a href="#搭建Apache" class="headerlink" title="搭建Apache"></a>搭建Apache</h2><p>安装Apache非常的简单。<br>1.<code>yum install httpd</code> //安装httpd，也就是软件apache<br>2.<code>systemctl start httpd.service</code> //启动服务<br>3.<code>systemctl enable httpd.service</code> //设置开启启动<br>4.<code>systemctl status httpd.service</code> //查看服务的启动状态<br>5.<code>/etc/httpd/conf/httpd.conf</code> //Apache配置文件地址<br>如果说显示Active: <font color="green">active (running)</font>，则说明Apache安装完成并且正在运行。<br>此时，就可以在本地访问服务器的ip，会显示如下内容(如果显示被拒绝，可能是服务器80端口没有开通)。<br><img src="https://i.loli.net/2018/01/05/5a4f39e7d60e2.jpg" title="Apache默认初始效果"></p>
+<h2 id="搭建MySQL"><a href="#搭建MySQL" class="headerlink" title="搭建MySQL"></a>搭建MySQL</h2><blockquote>
+<p>在centos7中将MySQL数据库软件从默认的程序列表中移除，而是用mariadb代替。</p>
+</blockquote>
+<p>1.去官网下载安装包，<a href="https://dev.mysql.com/downloads/repo/yum/" target="_blank" rel="external">https://dev.mysql.com/downloads/repo/yum/</a>，选择需要的版本。<br>2.这里直接<code>wget wget https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm</code><br>3.<code>yum localinstall mysql57-community-release-el7-7.noarch</code> //添加到系统的软件库列表<br>4.<code>yum install mysql-community-server</code> //安装mysql(可能会很慢)<br>5.<code>systemctl start mysqld</code> //启动mysqld服务<br>6.<code>systemctl enable mysqld</code> //设为开机启动<br>7.<code>systemctl status mysqld</code> //查看mysqld服务状态<br>8.<code>netstat -atulpn | grep mysqld</code> 查看mysqld监听端口<br><strong>MySQL5.7默认root是有密码的。</strong></p>
+<h2 id="搭建PHP"><a href="#搭建PHP" class="headerlink" title="搭建PHP"></a>搭建PHP</h2><p>1.<code>yum install php</code> //安装php<br>2.<code>/etc/httpd/conf.d/php.conf</code> //生成php配置文件地址<br>3.<code>/etc/php.ini</code> //php自身的配置文件<br>4.<code>systemctl restart httpd</code> //重启apache服务<br>5.测试安装是否成功，在<code>/var/www/html</code>目录下<br>    a.vi test.php //创建一个测试文件<br>    b.&lt;?php phpinfo();?&gt; //测试信息，保存<br>    c.在浏览器输入服务器地址加文件名，eg:192.168.1.128/test.php<br>    最终显示部分如下所示<br>    <img src="https://i.loli.net/2018/01/05/5a4f4bfdd3465.jpg" title="php相关函数库"></p>
+<h2 id="搭建PHP-MySQL"><a href="#搭建PHP-MySQL" class="headerlink" title="搭建PHP-MySQL"></a>搭建PHP-MySQL</h2><blockquote>
+<p>PHP-MySQL是一个可以让php访问mysql的模块</p>
+</blockquote>
+<p>1.<code>yum install php-mysql</code> //安装php-mysql模块<br>2.<code>systemctl restart httpd</code> //重启apache服务<br>具体可以在<code>/var/www/html</code>目录下创建对应测试文件测试php能否连接mysql</p>
+<h2 id="至此，LAMP基本已经搭建完成"><a href="#至此，LAMP基本已经搭建完成" class="headerlink" title="至此，LAMP基本已经搭建完成"></a>至此，LAMP基本已经搭建完成</h2>
+        <div>
+            <ul class="tags-category-list"><li class="tags-category-list-item"><a class="tags-category-list-link" href="/tags/Apache/">Apache</a></li><li class="tags-category-list-item"><a class="tags-category-list-link" href="/tags/Linux/">Linux</a></li><li class="tags-category-list-item"><a class="tags-category-list-link" href="/tags/MySQL/">MySQL</a></li><li class="tags-category-list-item"><a class="tags-category-list-link" href="/tags/PHP/">PHP</a></li></ul>
+        </div>
+        <div class="bottom-line"></div>
+        
+    <nav id="article-nav">
+        
+            <a href="/2018/08/04/stage/" id="article-nav-newer" class="article-nav-link-wrap">
+        <span class="article-nav-title">
+            
+                Hello Stage
+            
+        </span>
+                <strong class="article-nav-caption">&gt;</strong>
+            </a>
+        
+        
+            <a href="/2018/01/01/website-seo/" id="article-nav-older" class="article-nav-link-wrap">
+                <strong class="article-nav-caption">&lt;</strong>
+                <span class="article-nav-title">
+                    
+                        总结一些网站的性能优化
+                </span>
+                
+            </a>
+        
+    </nav>
+
+
+        
+            <div id="stageComment" class="comment" style="margin-top: 27px;"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+  var notify = 'false' == true ? true : false;
+  var verify = 'false' == true ? true : false;
+  window.onload = function() {
+    new Valine({
+      el: '#stageComment',
+      notify: notify,
+      verify: verify,
+      app_id: "6Q3xRwM97frlrEeH1ybox5l6-gzGzoHsz",
+      app_key: "XbePHedfhUu8B8SAa1mfqvzS",
+      placeholder: "Stage,show",
+      avatar:"mm"
+    });
+  }
+</script>
+
+        
+    </article>
+    <div id="toc">
+        
+            <h2>文章目录</h2>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#搭建Apache"><span class="toc-number">1.</span> <span class="toc-text">搭建Apache</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#搭建MySQL"><span class="toc-number">2.</span> <span class="toc-text">搭建MySQL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#搭建PHP"><span class="toc-number">3.</span> <span class="toc-text">搭建PHP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#搭建PHP-MySQL"><span class="toc-number">4.</span> <span class="toc-text">搭建PHP-MySQL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#至此，LAMP基本已经搭建完成"><span class="toc-number">5.</span> <span class="toc-text">至此，LAMP基本已经搭建完成</span></a></li></ol>
+        
+    </div>
+</div>
+
+    </div>
+</div>
+<footer id="footer">
+    <div id="copyright">&copy; Mark  2018</div>
+    <div id="theme">
+        Powered by <a href="http://hexo.io">Hexo</a>. Theme by <a href="https://github.com/markyong/hexo-theme-stage">Stage</a>
+    </div>
+</footer>
+<script src="/lib/js/waterrippleeffect.min.js"></script>
+<script src="/js/header-bg.main.js"></script>
+
+    <script src="/lib/js/smooth-scroll.min.js"></script>
+    <script src="/js/toc.main.js"></script>
+
+</body>
+</html>

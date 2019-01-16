@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JS中缓存的简单使用 | Stage : One ? Two</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="">
+    <meta name="description" content="想必开发人员都知道斐波那契数列，并且也都会用相应的程序语言编写斐波那契数列。斐波那契数列也成黄金分割数列，在在很多领域都有直接的应用。那么在JavaScript中，斐波那契数列的写法也是很简单。12345678var count = 0;//测试执行次数function fibonacci(n)&amp;#123;	count++;	if( n &amp;lt;= 2 )&amp;#123;		return 1;	&amp;#125;	return fibonacci(n-1) + fibonacci(n-2);&amp;#125;
+乍一看，上面的代码好像也没什么问题，对应的数也能算出来了，但是，上面的代码在运行的过程中存在着大量的重复的运算，那么这样的代码写...">
+    
+        <link rel="icon" href="/favicon.ico">
+    
+    
+        
+            <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+        
+            <link rel="stylesheet" href="/css/stage.css">
+        
+            <link rel="stylesheet" href="/css/avatar-bg.css">
+        
+    
+</head>
+
+<body>
+<header id="header">
+    <div class="menu">
+        <i class="fa fa-bars"></i>
+    </div>
+    <div class="header-main">
+        <h1><a href="/">Stage : One ? Two</a></h1>
+    </div>
+    <div id="nav">
+        <div class="nav-img" id="nav-img"></div>
+        <div class="sentences">
+            云里写诗，泥里生活，岁月里洒脱。
+        </div>
+    </div>
+</header>
+
+<div id="content-outer">
+    <div id="content-inner">
+        <div class="clearfix">
+    <article id="post">
+        <h1>JS中缓存的简单使用</h1>
+        <div class="create">
+            <span>创建于</span>
+            
+                <time datetime="2017-04-16T16:00:00.000Z">
+                    2017-04-17
+                </time>
+            
+            <ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/JavaScript/">JavaScript</a></li></ul>
+        </div>
+        <p>想必开发人员都知道斐波那契数列，并且也都会用相应的程序语言编写斐波那契数列。斐波那契数列也成黄金分割数列，在在很多领域都有直接的应用。那么在<code>JavaScript</code>中，斐波那契数列的写法也是很简单。<br><a id="more"></a><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> count = <span class="number">0</span>;<span class="comment">//测试执行次数</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fibonacci</span>(<span class="params">n</span>)</span>&#123;</div><div class="line">	count++;</div><div class="line">	<span class="keyword">if</span>( n &lt;= <span class="number">2</span> )&#123;</div><div class="line">		<span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> fibonacci(n<span class="number">-1</span>) + fibonacci(n<span class="number">-2</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>乍一看，上面的代码好像也没什么问题，对应的数也能算出来了，但是，上面的代码在运行的过程中存在着大量的重复的运算，那么这样的代码写出来性能很差。具体可以定义一个变量<code>count</code>来查看代码的执行次数。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">fibonacci(<span class="number">10</span>); <span class="comment">// count = 109</span></div><div class="line">fibonacci(<span class="number">15</span>); <span class="comment">// count = 1219</span></div><div class="line">fibonacci(<span class="number">20</span>); <span class="comment">// count = 13529</span></div><div class="line">fibonacci(<span class="number">25</span>); <span class="comment">// count = 150049</span></div><div class="line">fibonacci(<span class="number">30</span>); <span class="comment">// count = 1664079</span></div></pre></td></tr></table></figure></p>
+<p>通过以上的结果会发现，越往后面的数列程序运行的次数越来越多。其实通过仔细分析，每次计算时都是递归到满足最终的判断条件，那么在这个过程中，有很多数都是重复的进行运算，那么我们完全可以将这些重复数据存储起来，在需要的时候将其调用即可。在这里可以使用缓存来解决这个问题。  </p>
+<p>具体缓存相关的概念就不多说了，这里只是简单的应用下缓存。我们可以创建一个缓存(这里采用一个数组)，在每次代码执行时，都去缓存中找相应的数，如果有的话就直接返回回来，这样就省去了后面的计算，如果没有，就将算出来的值放到缓存中，以便下次使用。具体的代码如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [];<span class="comment">//缓存</span></div><div class="line"><span class="keyword">var</span> count = <span class="number">0</span>;<span class="comment">//测试执行次数</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fibonacci</span>(<span class="params">n</span>)</span>&#123;</div><div class="line">	count++;</div><div class="line">	<span class="keyword">if</span>(arr[n] !== <span class="literal">undefined</span>)&#123;</div><div class="line">		<span class="keyword">return</span> arr[n];</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">if</span>(n &lt;= <span class="number">2</span>)&#123;</div><div class="line">		arr[n] = <span class="number">1</span>;</div><div class="line">		<span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">var</span> temp = fibonacci(n<span class="number">-1</span>) + fibonacci(n<span class="number">-2</span>);</div><div class="line">	arr[n] = temp;</div><div class="line">	<span class="keyword">return</span> temp;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>接下来接着测试一下代码的执行次数。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">fibonacci(<span class="number">10</span>); <span class="comment">// count = 17</span></div><div class="line">fibonacci(<span class="number">15</span>); <span class="comment">// count = 27</span></div><div class="line">fibonacci(<span class="number">20</span>); <span class="comment">// count = 37</span></div><div class="line">fibonacci(<span class="number">25</span>); <span class="comment">// count = 47</span></div><div class="line">fibonacci(<span class="number">30</span>); <span class="comment">// count = 57</span></div></pre></td></tr></table></figure></p>
+<p>到这里了是不是有点惊喜了，两次数据进行对比，是不是发现执行次数减少了很多很多，有木有。这只是一个缓存的简单使用，便可以很大的提升代码的性能，这就是JS的迷人之处。记得之前听过这样一句话：一个工作了3年的Java程序员可能和一个工作了5年的Java程序员写出来的代码可能区别不大，但是一个工作了3年的JS程序员和一个工作了5年的JS程序员写出来的代码区别可能就很大。好多次想起来，确实是这样，感觉每次写出来的JS代码的每一句都可以再次的进行精减。现在这些非常火的开源框架，不正是结合许多人的智慧经过巧妙的精简所创作出来供大家使用吗！！！  </p>
+<p>当然，上面的代码也可以优化，比如可以将其封装起来，而缓存用数组的话就显得太局限，具体的做法可以参考<code>jQuery</code>中缓存是如何创建的，确实很经典、很巧妙。</p>
+
+        <div>
+            <ul class="tags-category-list"><li class="tags-category-list-item"><a class="tags-category-list-link" href="/tags/斐波那契数列/">斐波那契数列</a></li><li class="tags-category-list-item"><a class="tags-category-list-link" href="/tags/缓存/">缓存</a></li></ul>
+        </div>
+        <div class="bottom-line"></div>
+        
+    <nav id="article-nav">
+        
+            <a href="/2017/04/18/addEvent/" id="article-nav-newer" class="article-nav-link-wrap">
+        <span class="article-nav-title">
+            
+                JS中注册事件的兼容性封装
+            
+        </span>
+                <strong class="article-nav-caption">&gt;</strong>
+            </a>
+        
+        
+            <a href="/2017/04/13/jQM/" id="article-nav-older" class="article-nav-link-wrap">
+                <strong class="article-nav-caption">&lt;</strong>
+                <span class="article-nav-title">
+                    
+                        取消jQuery Mobile中Footer toolbar切换时页面刷新效果
+                </span>
+                
+            </a>
+        
+    </nav>
+
+
+        
+            <div id="stageComment" class="comment" style="margin-top: 27px;"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+  var notify = 'false' == true ? true : false;
+  var verify = 'false' == true ? true : false;
+  window.onload = function() {
+    new Valine({
+      el: '#stageComment',
+      notify: notify,
+      verify: verify,
+      app_id: "6Q3xRwM97frlrEeH1ybox5l6-gzGzoHsz",
+      app_key: "XbePHedfhUu8B8SAa1mfqvzS",
+      placeholder: "Stage,show",
+      avatar:"mm"
+    });
+  }
+</script>
+
+        
+    </article>
+    <div id="toc">
+        
+            <h2>目录都去哪了...</h2>
+        
+    </div>
+</div>
+
+    </div>
+</div>
+<footer id="footer">
+    <div id="copyright">&copy; Mark  2018</div>
+    <div id="theme">
+        Powered by <a href="http://hexo.io">Hexo</a>. Theme by <a href="https://github.com/markyong/hexo-theme-stage">Stage</a>
+    </div>
+</footer>
+<script src="/lib/js/waterrippleeffect.min.js"></script>
+<script src="/js/header-bg.main.js"></script>
+
+    <script src="/lib/js/smooth-scroll.min.js"></script>
+    <script src="/js/toc.main.js"></script>
+
+</body>
+</html>

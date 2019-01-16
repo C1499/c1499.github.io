@@ -1,0 +1,188 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>git常用命令 | Stage : One ? Two</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="">
+    <meta name="description" content="
+git add 文件名 =&amp;gt; 添加文件到暂存区
+git commit -m 描述内容 =&amp;gt; 添加文件到git仓库
+git status =&amp;gt; 查看状态
+git log =&amp;gt; 查看提交历史
+git log --pretty=oneline =&amp;gt; 以单行查看历史提交状态
+git reset --hard HEAD^ =&amp;gt; 回退到上一个版本/HEAD^^||HEAD~100/
+git reset --hard commitID =&amp;gt; 回退到某一个版本  
+
+
+
+git reflog =&amp;gt; 查看命令历史、版本
+git checkout --file =&amp;gt; 回退到上一次保存的...">
+    
+        <link rel="icon" href="/favicon.ico">
+    
+    
+        
+            <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+        
+            <link rel="stylesheet" href="/css/stage.css">
+        
+            <link rel="stylesheet" href="/css/avatar-bg.css">
+        
+    
+</head>
+
+<body>
+<header id="header">
+    <div class="menu">
+        <i class="fa fa-bars"></i>
+    </div>
+    <div class="header-main">
+        <h1><a href="/">Stage : One ? Two</a></h1>
+    </div>
+    <div id="nav">
+        <div class="nav-img" id="nav-img"></div>
+        <div class="sentences">
+            时光荏苒，旦夕之间，略有遗憾，似白驹过隙，蹉跎自悟。
+        </div>
+    </div>
+</header>
+
+<div id="content-outer">
+    <div id="content-inner">
+        <div class="clearfix">
+    <article id="post">
+        <h1>git常用命令</h1>
+        <div class="create">
+            <span>创建于</span>
+            
+                <time datetime="2017-11-26T16:00:00.000Z">
+                    2017-11-27
+                </time>
+            
+            <ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/git/">git</a></li></ul>
+        </div>
+        <ol>
+<li><code>git add</code> 文件名 =&gt; 添加文件到暂存区</li>
+<li><code>git commit -m</code> 描述内容 =&gt; 添加文件到git仓库</li>
+<li><code>git status</code> =&gt; 查看状态</li>
+<li><code>git log</code> =&gt; 查看提交历史</li>
+<li><code>git log --pretty=oneline</code> =&gt; 以单行查看历史提交状态</li>
+<li><code>git reset --hard HEAD^</code> =&gt; 回退到上一个版本/HEAD^^||HEAD~100/</li>
+<li><code>git reset --hard commitID</code> =&gt; 回退到某一个版本  </li>
+</ol>
+<a id="more"></a>
+<ol>
+<li><code>git reflog</code> =&gt; 查看命令历史、版本</li>
+<li><code>git checkout --file</code> =&gt; 回退到上一次保存的状态</li>
+<li><code>git reset HEAD file</code> =&gt; 将暂存区内容更改到工作区</li>
+<li><code>git rm file</code> =&gt; 将文件删除提交到暂存区</li>
+<li><code>git remote add origin git@server:path/xxx.git</code> =&gt; 关联远程仓库，给远程仓库地址起一个别名</li>
+<li><code>git push -u origin master</code> =&gt; 第一次向远程仓库提交，并将本地的master分支和远程的master分支关联起来</li>
+<li><code>git push origin master</code> =&gt; 向远程仓库推送新的内容。</li>
+<li><code>git clone git@server:path/xxx.git</code> =&gt; 下载远程仓库的内容到本地</li>
+<li><code>git branch 分支名</code> =&gt; 创建一个分支</li>
+<li><code>git checkout 分支名</code> =&gt; 切换分支</li>
+<li><code>git branch</code> =&gt; 查看当前分支和所有分支</li>
+<li><code>git checkout -b</code> 分支名 =&gt; 创建一个分支并切换到该分支</li>
+<li><code>git merge</code> 分支名 =&gt; 合并分支到当前分支</li>
+<li><code>git branch -d</code> 分支名 =&gt; 删除分支</li>
+<li><code>git log --graph</code> =&gt; 查看分支合并图</li>
+<li><code>git merge --no-ff -m</code> 描述内容 分支名 =&gt; 合并分支并且创建一个历史分支</li>
+<li><code>git stash</code> =&gt; 把工作区内容藏起来</li>
+<li><code>git stash list</code> =&gt; 查看藏起来的工作区的内容</li>
+<li><code>git stash --help</code> =&gt; 查看相关命令</li>
+<li><code>git stash pop</code> =&gt; 恢复stash中的内容，会删除stash中的内容</li>
+<li><code>git stash apply</code> =&gt; 恢复stash中的内容，不会删除stash中的内容</li>
+<li><code>git stash drop</code> =&gt; 删除指定stash中的内容</li>
+<li><code>git remote -v</code> =&gt; 查看远程仓库信息</li>
+<li><code>git push origin 分支名</code> =&gt; 推送本地分支</li>
+<li><code>git tag &lt;name&gt;</code> =&gt; 创建一个标签</li>
+<li><code>git tag</code> =&gt; 查看所有标签</li>
+<li><code>git tag -a &lt;tagName&gt; &lt;commit ID&gt;</code> =&gt; 为某次历史提交创建标签</li>
+<li><code>git show &lt;tagName&gt;</code> =&gt; 查看标签信息</li>
+<li><code>git tag -a &lt;tagName&gt; -m &lt;说明文字&gt; &lt;commit ID&gt;</code></li>
+<li><code>git tag -d &lt;tagName&gt;</code> =&gt; 删除标签</li>
+<li><code>git push origin &lt;tagName&gt;</code> =&gt; 推送本地标签</li>
+<li><code>git push origin --tags</code> =&gt; 推送本地所有未推送的标签</li>
+<li><code>git push origin :/refs/tags/&lt;tagName&gt;</code> =&gt; 删除一个远程标签</li>
+<li><code>git config --global alias.st status</code> =&gt; 为statsu起一个别名st </li>
+</ol>
+<p>开发时git常用步骤<br><blockquote><p>1.git stash =&gt; 把当前工作区藏起来<br>2.git pull origin master:master =&gt; 从远程仓库更新本地分支内容，如果是本地当前分支，冒号后面分支可以省略<br>3.git stash apply stash@{0} =&gt; 恢复stash中的内容<br>4.git commit -m “描述内容”<br>5.git push origin master</p>
+</blockquote></p>
+
+        <div>
+            <ul class="tags-category-list"><li class="tags-category-list-item"><a class="tags-category-list-link" href="/tags/command/">command</a></li><li class="tags-category-list-item"><a class="tags-category-list-link" href="/tags/git/">git</a></li><li class="tags-category-list-item"><a class="tags-category-list-link" href="/tags/版本控制/">版本控制</a></li></ul>
+        </div>
+        <div class="bottom-line"></div>
+        
+    <nav id="article-nav">
+        
+            <a href="/2018/01/01/website-seo/" id="article-nav-newer" class="article-nav-link-wrap">
+        <span class="article-nav-title">
+            
+                总结一些网站的性能优化
+            
+        </span>
+                <strong class="article-nav-caption">&gt;</strong>
+            </a>
+        
+        
+            <a href="/2017/05/02/right-left/" id="article-nav-older" class="article-nav-link-wrap">
+                <strong class="article-nav-caption">&lt;</strong>
+                <span class="article-nav-title">
+                    
+                        前端常用布局：左边固定，右边自适应
+                </span>
+                
+            </a>
+        
+    </nav>
+
+
+        
+            <div id="stageComment" class="comment" style="margin-top: 27px;"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+  var notify = 'false' == true ? true : false;
+  var verify = 'false' == true ? true : false;
+  window.onload = function() {
+    new Valine({
+      el: '#stageComment',
+      notify: notify,
+      verify: verify,
+      app_id: "6Q3xRwM97frlrEeH1ybox5l6-gzGzoHsz",
+      app_key: "XbePHedfhUu8B8SAa1mfqvzS",
+      placeholder: "Stage,show",
+      avatar:"mm"
+    });
+  }
+</script>
+
+        
+    </article>
+    <div id="toc">
+        
+            <h2>目录都去哪了...</h2>
+        
+    </div>
+</div>
+
+    </div>
+</div>
+<footer id="footer">
+    <div id="copyright">&copy; Mark  2018</div>
+    <div id="theme">
+        Powered by <a href="http://hexo.io">Hexo</a>. Theme by <a href="https://github.com/markyong/hexo-theme-stage">Stage</a>
+    </div>
+</footer>
+<script src="/lib/js/waterrippleeffect.min.js"></script>
+<script src="/js/header-bg.main.js"></script>
+
+    <script src="/lib/js/smooth-scroll.min.js"></script>
+    <script src="/js/toc.main.js"></script>
+
+</body>
+</html>
