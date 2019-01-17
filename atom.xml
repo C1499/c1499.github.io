@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://04071011.xyz/"/>
-  <updated>2019-01-16T06:52:16.509Z</updated>
+  <updated>2019-01-17T12:37:54.517Z</updated>
   <id>https://04071011.xyz/</id>
   
   <author>
@@ -21,23 +21,25 @@
     <link href="https://04071011.xyz/2019/01/16/aaa/"/>
     <id>https://04071011.xyz/2019/01/16/aaa/</id>
     <published>2019-01-16T06:52:09.000Z</published>
-    <updated>2019-01-16T06:52:16.509Z</updated>
+    <updated>2019-01-17T12:37:54.517Z</updated>
     
-    <content type="html"><![CDATA[<script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+    <content type="html"><![CDATA[<p>dsfkljsdfjksdjfksdfjksfd</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;script&gt;
+        &lt;p&gt;dsfkljsdfjksdjfksdfjksfd&lt;/p&gt;
+&lt;script&gt;
         document.querySelectorAll(&#39;.github-emoji&#39;)
           .forEach(el =&gt; {
-            if (!el.dataset.src) { return; }
-        
+            if (!el.d
       
     
     </summary>
     
+    
+      <category term="123" scheme="https://04071011.xyz/tags/123/"/>
     
   </entry>
   
