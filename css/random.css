@@ -116,6 +116,10 @@ a:hover {
 .center-field {
   margin: 0 auto;
 }
+.post-count {
+  color: #888;
+  font-size: 14px;
+}
 .avatar {
   cursor: pointer;
   margin-top: -70px;
