@@ -7,10 +7,10 @@
 
 
   
-
+                                                                                                                                          
 
 <!doctype html>
-<html lang="zh-CN">
+<html lang="zh-CN,en,default">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -37,7 +37,6 @@
 <link rel="stylesheet" href="/css/iconfont/iconfont.css">
 <link rel="stylesheet" href="/css/jquery.fancybox-thumbs.css">
 <link rel="stylesheet" href="/css/plyr.css">
-<link rel="stylesheet" href="/css/search.css">
   
   <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
   <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
@@ -79,35 +78,35 @@
           
             <li>
           
-            <a href="/index.html">Home</a>
+            <a href="/index.html">首页</a>
             
           </li>
         
           
             <li class="active">
           
-            <a href="/archives">Archives</a>
+            <a href="/archives">文章</a>
             
           </li>
         
           
             <li>
           
-            <a href="/tags">Tags</a>
+            <a href="/tags">标签</a>
             
           </li>
         
           
             <li>
           
-            <a href="/categories">Categories</a>
+            <a href="/categories">分类</a>
             
           </li>
         
           
             <li>
           
-            <a href="/about">About</a>
+            <a href="/about">关于</a>
             
           </li>
         
@@ -138,26 +137,19 @@
     
         <span class="posts-count">
         共
-        2
+        1
         
             文章
         
         </span>
     
-    <span class="local-search local-search-google local-search-plugin" style="<%- wrapStyle %>">
-        <input type="search" placeholder="站内搜索" id="local-search-input" class="local-search-input-cls" style="<%- inputStyle %>">
-        <div id="local-search-result" class="local-search-result-cls"></div>
-    </span>
+    
     </h1>
     
     
         
         
             
-        
-        
-    
-        
         
         
     
@@ -170,7 +162,7 @@
             
                 <span class="posts-count">
                 共
-                2
+                1
                 
                     文章
                 
@@ -188,46 +180,6 @@
   <p class="page-title-sub">
     <span id="post-title-date">1-15</span>
     
-    
-    
-      <br>
-      
-      
-    
-  </p>
-</div>
-    
-        
-        
-        <div class="post-title-item">
-  
-  <a href="/2019/01/16/aaa/">
-  
-    aaa
-  
-  </a>
-  <p class="page-title-sub">
-    <span id="post-title-date">1-16</span>
-    
-    <span id="post-title-categories">分类
-    
-    
-      
-      
-      <a href="/categories/test/">test</a>
-    
-    </span>
-    
-    
-    <span id="post-title-tags">
-    标签
-    
-    
-      
-      
-      <a href="/tags/test/">test</a>
-    
-    </span>
     
     
       <br>
@@ -344,7 +296,9 @@ var isTriggerAnalytics = !( true && isIgnoreHost );
   
     <script src="/js/plyr.js"></script>
   
-    <script src="/js/search.js"></script>
+    <script src="/js/clipboard.min.js"></script>
+  
+    <script src="/js/clipboard-use.js"></script>
   
 
 <script>
@@ -365,7 +319,7 @@ var isTriggerAnalytics = !( true && isIgnoreHost );
   });
   $(".fancybox").fancybox();
 
-var vegasConfig = {"preload­Image":true,"transition":["flash"],"timer":true,"delay":5000,"shuffle":true,"count":12};
+var vegasConfig = {"preload­Image":true,"transition":["flash"],"timer":false,"delay":5000,"shuffle":true,"count":12};
 var unsplashConfig = {"gravity":"center"};
 // is show background images
 var turnoffBackgroundImage = false;
@@ -413,6 +367,7 @@ $(".video-container iframe").each(function(i){
 plyr.setup('.plyr', {iconUrl: '/css/sprite.svg'});
 </script>
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/hibiki.model.json"},"display":{"position":"right","width":75,"height":175},"mobile":{"show":"flase","scale":0.3},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/hibiki.model.json"},"display":{"position":"right","width":75,"height":175},"mobile":{"show":false,"scale":0.3},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false});</script></body>
 </html>
+
 

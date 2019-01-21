@@ -12,8 +12,46 @@ body {
 article {
   line-height: 1.5em;
 }
+.pace-divn {
+  text-align: left;
+  padding-left: 10px;
+  padding-right: 10px;
+  line-height: 200%;
+}
 .highlight {
   line-height: 1.25em;
+  position: relative;
+}
+.btn-copy {
+  display: inline-block;
+  cursor: pointer;
+  background-color: #eee;
+  background-image: linear-gradient(#fcfcfc, #eee);
+  border: 1px solid #d5d5d5;
+  border-radius: 3px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-appearance: none;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 20px;
+  color: #333;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -o-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+  padding: 2px 6px;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  opacity: 0;
+}
+.btn-copy span {
+  margin-left: 5px;
+}
+.highlight:hover .btn-copy {
+  opacity: 1;
 }
 a {
   text-decoration: none;
@@ -48,7 +86,7 @@ a:hover {
 #menu-outer,
 #bottom-outer,
 #random-index {
-  opacity: 0.85;
+  opacity: 0.9;
 }
 .random-center {
   position: absolute;
@@ -98,6 +136,7 @@ a:hover {
 .sub-title {
   cursor: pointer;
   font-weight: none;
+  font-size: 15px;
   padding-bottom: 10px;
 }
 #random-index .index-nav-link {
@@ -260,7 +299,7 @@ ul.category-list li {
   margin: 10px;
 }
 ul.category-list li a {
-  padding: 8px;
+  padding: 6px;
   margin: 8px;
   background-color: #eee;
   color: #000;
@@ -371,6 +410,7 @@ article img {
   float: right;
 }
 #show-menu button {
+  border-radius: 15px;
   background-color: #eee;
   border: 1px #444 solid;
   padding: 6px;
@@ -586,7 +626,7 @@ article img {
   background-color: #888;
 }
 figure.highlight {
-  margin: 0px -10px 0px -10px;
+  margin: 0px 0px 0px 0px;
 }
 figure.highlight td.gutter {
   padding-right: 20px;
@@ -647,7 +687,7 @@ blockquote {
     position: absolute;
     margin-top: 50px;
     background-color: #fff;
-    opacity: 0.85;
+    opacity: 0.9;
     width: 100%;
   }
   #menu-list ul {
@@ -656,6 +696,7 @@ blockquote {
   #menu-list ul li {
     text-align: center;
     display: block;
+    height: 20px;
   }
   .highlight {
     margin-left: 0px;
@@ -672,6 +713,8 @@ blockquote {
   }
   #random-index .index-nav-link li {
     display: block;
+    margin-top: 1.5%;
+    font-size: 125%;
   }
   #bottom-outer,
   #random-index {
@@ -692,6 +735,8 @@ blockquote {
   }
   #random-index .index-nav-link li {
     display: block;
+    font-size: 125%;
+    margin-top: 1.5%;
     padding: 0px 0px;
   }
 }
