@@ -14,8 +14,8 @@ article {
 }
 .pace-divn {
   text-align: left;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 12px;
+  padding-right: 12px;
   line-height: 200%;
 }
 .highlight {
@@ -688,6 +688,7 @@ blockquote {
     display: none;
     position: absolute;
     margin-top: 50px;
+    left: 0px;
     background-color: #fff;
     opacity: 0.9;
     width: 100%;
