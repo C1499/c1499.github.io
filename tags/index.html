@@ -127,16 +127,12 @@
     
     
       <h1 class="center-title">标签</h1>
-
-
-<script type="text/javascript" id="local.search.active">
-var inputArea       = document.querySelector("#local-search-input");
-inputArea.onclick   = function(){ getSearchFile(); this.onclick = null }
-inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
-var $resultContent = document.getElementById('local-search-result');
-$resultContent.innerHTML = BTN + "<ul><span class='local-search-empty'>首次搜索，正在载入索引文件，请稍后……<span></ul>";
-</script>
-
+      <form id="search-form"> <!-- 搜索框相关 -->
+      <input type="text" id="local-search-input" name="q" results="0" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off">
+      <i class="fa fa-times" onclick="resetSearch()"></i> <!-- 清空/重置搜索框 -->
+      </form>
+      <div id="local-search-result"></div> <!-- 搜索结果区 -->
+      <p class="no-result">No results found </p> <!-- 无匹配时显示，注意请在 CSS 中设置默认隐藏 -->
       <div id="tipue_search_content"></div>
       <div class="tag-cloud-tags">
         
