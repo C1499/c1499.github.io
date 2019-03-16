@@ -1,3 +1,4 @@
+
 // A local search script with the help of [hexo-generator-search](https://github.com/PaicHyperionDev/hexo-generator-search)
 // Copyright (C) 2015 
 // Joseph Pan <http://github.com/wzpan>
@@ -87,6 +88,9 @@ var searchFunc = function(path, search_id, content_id) {
     })
 }
 
+var path = "/search.xml";
+searchFunc(path, 'local-search-input', 'local-search-result');
+
 var inputArea = document.querySelector("#local-search-input");
 var getSearchFile = function(){
     var path = "/search.xml";
@@ -105,7 +109,6 @@ resetSearch = function(){
     $resetButton.hide();
     $(".no-result").hide();
 }
-
 inputArea.onkeydown = function(){ if(event.keyCode==13) return false}
 
 $resultArea.bind("DOMNodeRemoved DOMNodeInserted", function(e) {

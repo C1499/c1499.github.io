@@ -265,34 +265,8 @@ $(".video-container iframe").each(function(i){
 plyr.setup('.plyr', {iconUrl: '/css/sprite.svg'});
 </script>
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script type="text/javascript">
 
-<link href="/tipuesearch/tipuesearch.css" rel="stylesheet">
-<script src="/tipuesearch/tipuesearch_set.js"></script>
-<script src="/tipuesearch/tipuesearch.js"></script>
-<script>
-    $(document).ready(function () {
-        var searchInput = $('#tipue_search_input');
-        searchInput.tipuesearch({
-            'mode': 'json',
-            'minimumLength': 2,
-            'contentLocation': '/tipuesearch/tipuesearch_content.json',
-            highlightEveryTerm: true
-        });
- 
-        $('#search-form').on('submit', function (e) {
-            e.preventDefault();
-            $('#tipue_search_content').show();
-            $('#content').hide();
-        });
- 
-        searchInput.keyup(function () {
-            var length = $(this).val().length;
-            if (length < 1) {
-                $('#tipue_search_content').hide();
-                $('#content').show();
-            }
-        });
-    });
 </script>
 
 </html>
