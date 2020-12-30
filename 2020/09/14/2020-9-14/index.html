@@ -16,10 +16,10 @@
   
   
   
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Qu...">
+    <meta name="description" content="数据结构——大O表示法数据结构中算法的空间、时间复杂度一直不是很清楚，看了一遍又一遍但还是没有搞懂的很彻底。处于一种感觉理解又好像不理解的地步，今天就仔仔细细的学一学。首先弄懂时间复杂度吧。
+时间复杂度「 大O符号表示法 」是我们表示一个算法所消耗时间的方法，即 T(n) = O(f(n))。它不是表示出一个代码的具体执行时间，而是表示代码执行时间的变化趋势，它也被称作算法的渐进时间复杂度。...">
   
-  <title>Hello World [ 饼干大超人 ]</title>
+  <title>2020.9.14 [ 饼干大超人 ]</title>
   
     <link rel="alternate" href="/atom.xml" title="饼干大超人">
   
@@ -56,13 +56,13 @@ Qu...">
 <body>
 <div class="side-navigate hide-area">
   
-    <div class="item prev">
-      <a href="/2020/09/14/2020-9-14/">
+  
+    <div class="item next">
+      <a href="/2019/01/15/hello-world/">
         <div class="item-icon"></div>
       </a>
     
     </div>
-  
   
 </div>
 <div id="outer-container" class="hide-area">
@@ -132,30 +132,75 @@ Qu...">
   
 
   <article id="post" style="text-align: center">
-    <h1>Hello World</h1>
+    <h1>2020.9.14</h1>
     <p class="page-title-sub">
-      <span id="post-title-date">撰写于 2019-01-15</span>
+      <span id="post-title-date">撰写于 2020-09-14</span>
       
-        <span id="post-title-updated">修改于 2019-01-19</span>
+        <span id="post-title-updated">修改于 2020-12-30</span>
         <span id="busuanzi_container_page_pv">
         本文总阅读量<span id="busuanzi_value_page_pv"></span>次
         </span>
       <br>
       
       
+      <span id="post-title-categories">分类
+      
+      
+        
+        
+        <a href="/categories/日常记录/">日常记录</a>
+      
+      </span>
+      
+      
+      <span id="post-title-tags">
+      标签
+      
+      
+        
+        
+        <a href="/tags/日常记录/">日常记录</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/2020/">2020</a>
+      
+      </span>
       
     </p>
     
     <div class="pace-divn">
-    <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br><span class="line">$ hexo generate</span><br><span class="line">$ hexo generate</span><br><span class="line">$ hexo generate</span><br><span class="line">$ hexo generate</span><br><span class="line">$ hexo generate$ hexo generate</span><br><span class="line">$ hexo generate</span><br><span class="line">$ hexo generate$ hexo generate$ hexo generate</span><br><span class="line">$ hexo generate</span><br><span class="line">$ hexo generate</span><br><span class="line">$ hexo generate</span><br><span class="line">$ hexo generate</span><br><span class="line">$ hexo generate</span><br><span class="line">$ hexo generate</span><br><span class="line">$ hexo generate</span><br><span class="line">$ hexo generate</span><br><span class="line">$ hexo generate</span><br><span class="line">$ hexo generate</span><br><span class="line">$ hexo generate</span><br><span class="line">$ hexo generate</span><br><span class="line">$ hexo generate</span><br><span class="line">$ hexo generate</span><br><span class="line">$ hexo generate$ hexo generate</span><br><span class="line">$ hexo generate</span><br><span class="line">$ hexo generate$ hexo generatehighlighthighlighthighlighthighlighthighlighthighlighthighlighthighlighthighlighthighlighthighlighthighlighthighlight</span><br><span class="line">$ hexo generate</span><br><span class="line">$ hexo generate</span><br><span class="line">$ hexo generate$ hexo generate</span><br><span class="line">$ hexo generate</span><br><span class="line">$ hexo generate$ hexo generate</span><br><span class="line">$ hexo generate</span><br><span class="line">$ hexo generate</span><br><span class="line">$ hexo generate</span><br><span class="line">$ hexo generate</span><br><span class="line">$ hexo generate</span><br><span class="line">$ hexo generate</span><br><span class="line">$ hexo generate</span><br><span class="line">$ hexo generate</span><br><span class="line">$ hexo generate</span><br><span class="line">$ hexo generate</span><br><span class="line">$ hexo generate</span><br><span class="line">$ hexo generate</span><br><span class="line">$ hexo generate</span><br><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+    <h1 id="数据结构——大O表示法"><a href="#数据结构——大O表示法" class="headerlink" title="数据结构——大O表示法"></a>数据结构——大O表示法</h1><p>数据结构中算法的空间、时间复杂度一直不是很清楚，看了一遍又一遍但还是没有搞懂的很彻底。处于一种感觉理解又好像不理解的地步，今天就仔仔细细的学一学。首先弄懂时间复杂度吧。</p>
+<h2 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h2><p>「 大O符号表示法 」是我们表示一个算法所消耗时间的方法，即 T(n) = O(f(n))。它不是表示出一个代码的具体执行时间，而是表示代码执行时间的变化趋势，它也被称作算法的渐进时间复杂度。  </p>
+<h3 id="推导大O阶的方法"><a href="#推导大O阶的方法" class="headerlink" title="推导大O阶的方法"></a>推导大O阶的方法</h3><blockquote>
+<p>1.用常数1取代运行时间中的发所有加法常数<br>2.在修改后的运行次数函数中，只保留最高阶项<br>3.如果最高阶项存在且不是1，则去除与这个项相乘的常数。</p>
+<h6 id="以上内容来自《大话数据结构》P30"><a href="#以上内容来自《大话数据结构》P30" class="headerlink" title="以上内容来自《大话数据结构》P30"></a>以上内容来自《大话数据结构》P30</h6><p>我觉得简单来说就是结果中含有加法常数的可以省略，去除非最高项的项，与常数相乘的项如果非1，则去除这个常数。<br>例子：O(3n^2+2n+1)=&gt;O(n^2)。</p>
+</blockquote>
+<blockquote>
+<p>常数阶O(1)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int sum=0,n=999;</span><br><span class="line">sum++;</span><br><span class="line">++n;</span><br><span class="line">system.out.println(&quot;sum&quot;);</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>代码块中没有涉及到循环等其他复杂的结构，那么这个代码块的时间复杂度就是O(1)。上面的代码，运行次数函数是f(n)=4,根据推导大O阶的方法，f(n)=1。所以无论上方的代码执行多少次，最终f(n)还是等于1。</p>
+<blockquote>
+<p>线性阶O(n)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for(i=1; i&lt;=n; ++i)     //执行n次</span><br><span class="line">&#123;</span><br><span class="line">   j = i;               //执行1次</span><br><span class="line">   j++;                 //执行1次</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>这段代码，其实不难看懂。不过有一个疑惑的点，我在看《大话数据结构》时间复杂度一章时，第一行 for 循环的代码，书上计算的是执行n+1次。虽然+1和不+1的区别并不是很大，最终的结果都是 O(n) ,我们也只是需要知道代码的时间增长趋势，但就是纠结这个问题。网上搜索也并没有人提过这个问题，有一个版本的教材前面出现这部分代码时写的是n+1，到了后面就变成了n次。按照我的计算来看，就是n次。得到计算结果后，常数项可以省略。</p>
+<blockquote>
+<p>对数阶O(logN)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int i=0;</span><br><span class="line">while (i&lt;n)&#123;</span><br><span class="line">    i = i*5;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>每一轮i都会*5，直到i&gt;n才会结束循环。所以5^x=n,x=log5^n。根据我们推导大O阶方法的第三条可得,这段代码的时间复杂度为O(logN)。</p>
+<blockquote>
+<p>线性对数阶O(nlogN)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">for(m=0;m&lt;n;m++)&#123;</span><br><span class="line">    int i=0;</span><br><span class="line">    while (i&lt;n)&#123;</span><br><span class="line">        i = i*5;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>线性对数阶就是将时间复杂度为O(logN)的代码循环N遍。</p>
+<blockquote>
+<p>平方阶O(n^2)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">for(i=1; i&lt;=n; ++i)     //执行n次</span><br><span class="line">&#123;</span><br><span class="line">    for(j=1;j&lt;=n;j++)&#123;    //执行n^2次</span><br><span class="line">        j = i;               //执行1次</span><br><span class="line">        j++;                 //执行1次</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>平方阶就是将O(n)的代码循环嵌套一遍，也就是O(n*n)=&gt;O(n^2)次。这个也比较好理解，把之前的掌握后，就容易理解了。</p>
+<blockquote>
+<p>立方阶O(n^3)、K次方阶O(n^k)<br>这两种与平方阶类似，多层循环嵌套。</p>
+</blockquote>
 
     </div>
   </article>
@@ -168,7 +213,7 @@ Qu...">
         </li>
         <li class="post-copyright-link">
           <strong>本文链接：</strong>
-          <a href="/2019/01/15/hello-world/" title="Hello World">2019/01/15/hello-world/</a>
+          <a href="/2020/09/14/2020-9-14/" title="2020.9.14">2020/09/14/2020-9-14/</a>
         </li>
         <li class="post-copyright-license">
           <strong>版权声明： </strong>
@@ -182,18 +227,18 @@ Qu...">
   <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">隐藏目录</button>
   <div class="random-toc">
     <h2>目录</h2>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#数据结构——大O表示法"><span class="toc-text">数据结构——大O表示法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#时间复杂度"><span class="toc-text">时间复杂度</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#推导大O阶的方法"><span class="toc-text">推导大O阶的方法</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#以上内容来自《大话数据结构》P30"><span class="toc-text">以上内容来自《大话数据结构》P30</span></a></li></ol></li></ol></li></ol></li></ol>
   </div>
 </div>
 
   
 <nav id="pagination">
   
-    <a href="/2020/09/14/2020-9-14/" class="prev">&larr; 上一篇 2020.9.14</a>
-  
 
   
 
+  
+    <a href="/2019/01/15/hello-world/" class="next">下一篇 Hello World &rarr;</a>
   
 </nav>
 
