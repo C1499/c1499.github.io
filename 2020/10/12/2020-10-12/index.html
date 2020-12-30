@@ -1,0 +1,430 @@
+
+
+
+
+
+                                                                                                                                          
+
+<!doctype html>
+<html lang="zh-CN,en,default">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="author" content="Simone">
+  
+  
+  
+  
+    <meta name="description" content="JAVA模板方法设计模式(TemplateMethod)抽象类体现的就是一种模板模式的设计。抽象类作为多个子类的通用模板，子类在抽象类的基础上扩展、改造，但总体上会保留抽象类的行为方式。  
+模板方法设计要求软件开发中实现一个算法时，整体步骤很固定、通用，这些步骤已经在父类中写好了。但某些易变的部分可以抽象出来，让不同的子类实现。
+Calendar类可以获取当前日期。12Calendar c...">
+  
+  <title>2020.10.12 [ 饼干大超人 ]</title>
+  
+    <link rel="alternate" href="/atom.xml" title="饼干大超人">
+  
+  
+    <link rel="shortcut icon" href="/img/favicon.ico">
+  
+  
+  <link rel="stylesheet" href="/css/random.css">
+<link rel="stylesheet" href="/css/vegas.min.css">
+<link rel="stylesheet" href="/css/highlight-railscasts.css">
+<link rel="stylesheet" href="/css/jquery.fancybox.css">
+<link rel="stylesheet" href="/css/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/jquery.fancybox-thumbs.css">
+<link rel="stylesheet" href="/css/plyr.css">
+<link rel="stylesheet" href="/css/sousuo.css">
+  
+  <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+  <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+  <style>
+    .pace .pace-progress {
+        background: #7ebfff; /*進度條顏色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*陰影顏色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上邊框顏色*/
+        border-left-color: #1E92FB;    /*左邊框顏色*/
+    }
+</style>
+</head>
+
+<body>
+<div class="side-navigate hide-area">
+  
+    <div class="item prev">
+      <a href="/2020/10/19/2020-10-19/">
+        <div class="item-icon"></div>
+      </a>
+    
+    </div>
+  
+  
+    <div class="item next">
+      <a href="/2020/10/10/2020-10-10/">
+        <div class="item-icon"></div>
+      </a>
+    
+    </div>
+  
+</div>
+<div id="outer-container" class="hide-area">
+<div id="container">
+  <div id="menu-outer" class="slide-down">
+    <div id="menu-inner">
+      <div id="brand">
+        
+        <a onclick="openUserCard()">
+          <img id="avatar" src="/img/avatar.jpg">
+          <div id="homelink">饼干大超人</div>
+        </a>
+      </div>
+      <div id="menu-list">
+        <ul>
+        
+        
+          
+            <li>
+          
+            <a href="/index.html">首页</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/archives">文章</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/tags">标签</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/categories">分类</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/about">关于</a>
+            
+          </li>
+        
+          <li style="font-weight: normal;">
+          <a class="icon iconfont sousuo" href="/search">&#59319;
+          </a></li>
+          </ul>
+      </div>
+      <div id="show-menu">
+        <button>Menu</button>
+      </div>
+    </div>
+  </div>
+  <div id="content-outer">
+    <div id="content-inner">
+      
+      
+  
+
+  <article id="post" style="text-align: center">
+    <h1>2020.10.12</h1>
+    <p class="page-title-sub">
+      <span id="post-title-date">撰写于 2020-10-12</span>
+      
+        <span id="post-title-updated">修改于 2020-12-30</span>
+        <span id="busuanzi_container_page_pv">
+        本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+        </span>
+      <br>
+      
+      
+      <span id="post-title-categories">分类
+      
+      
+        
+        
+        <a href="/categories/日常记录/">日常记录</a>
+      
+      </span>
+      
+      
+      <span id="post-title-tags">
+      标签
+      
+      
+        
+        
+        <a href="/tags/日常记录/">日常记录</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/2020/">2020</a>
+      
+      </span>
+      
+    </p>
+    
+    <div class="pace-divn">
+    <h1 id="JAVA"><a href="#JAVA" class="headerlink" title="JAVA"></a>JAVA</h1><h2 id="模板方法设计模式-TemplateMethod"><a href="#模板方法设计模式-TemplateMethod" class="headerlink" title="模板方法设计模式(TemplateMethod)"></a>模板方法设计模式(TemplateMethod)</h2><p>抽象类体现的就是一种模板模式的设计。抽象类作为多个子类的通用模板，子类在抽象类的基础上扩展、改造，但总体上会保留抽象类的行为方式。  </p>
+<h3 id="模板方法设计要求"><a href="#模板方法设计要求" class="headerlink" title="模板方法设计要求"></a>模板方法设计要求</h3><p>软件开发中实现一个算法时，整体步骤很固定、通用，这些步骤已经在父类中写好了。但某些易变的部分可以抽象出来，让不同的子类实现。</p>
+<h2 id="Calendar类"><a href="#Calendar类" class="headerlink" title="Calendar类"></a>Calendar类</h2><p>可以获取当前日期。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Calendar calendar = Calendar.getInstance();</span><br><span class="line"><span class="keyword">int</span> mouth = calendar.get(Calendar.MONTH);   <span class="comment">//获取当前月份</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="接口-implements"><a href="#接口-implements" class="headerlink" title="接口 implements"></a>接口 implements</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">XX</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>JAVA不支持多继承，有了接口就可以得到多继承的效果</li>
+<li>接口和类是并列的结构</li>
+<li>JDK7及以前：只能定义全局常量和抽象方法<ul>
+<li>全局常量：public static final的(书写时可以省略)</li>
+<li>抽象方法：public abstract的</li>
+</ul>
+</li>
+<li>JDK8：除了全局常量和抽象方法外，还可以定义静态方法和默认方法</li>
+<li>接口中无法定义构造器，意味着接口无法实例化</li>
+<li>实现类覆盖了接口中的所有抽象方法，则此实现类可以实例化</li>
+<li>如果实现类没有覆盖接口中的所有抽象方法，则此类仍为一个抽象类 </li>
+<li>如果实现类需要继承父类，则先写继承后写接口</li>
+<li>接口与接口之间是多继承的</li>
+<li>接口实际就是定义了一种规范</li>
+<li>接口也满足多态性</li>
+<li>接口中定义的静态方法，只能通过接口来调用</li>
+</ol>
+
+    </div>
+  </article>
+  <div class="page-title-sub">    
+      
+      
+      <ul class="post-copyright" style="padding-inline-start: 27px;">
+        <li class="post-copyright-author">
+          <strong>本文作者：</strong>Simone
+        </li>
+        <li class="post-copyright-link">
+          <strong>本文链接：</strong>
+          <a href="/2020/10/12/2020-10-12/" title="2020.10.12">2020/10/12/2020-10-12/</a>
+        </li>
+        <li class="post-copyright-license">
+          <strong>版权声明： </strong>
+          本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0 CN</a> 许可协议。转载请注明出处！
+        </li>
+        </ul>
+      
+    </div>
+  <div class="random-toc-area">
+  <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">显示目录</button>
+  <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">隐藏目录</button>
+  <div class="random-toc">
+    <h2>目录</h2>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JAVA"><span class="toc-text">JAVA</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#模板方法设计模式-TemplateMethod"><span class="toc-text">模板方法设计模式(TemplateMethod)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#模板方法设计要求"><span class="toc-text">模板方法设计要求</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Calendar类"><span class="toc-text">Calendar类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#接口-implements"><span class="toc-text">接口 implements</span></a></li></ol></li></ol>
+  </div>
+</div>
+
+  
+<nav id="pagination">
+  
+    <a href="/2020/10/19/2020-10-19/" class="prev">&larr; 上一篇 2020.10.19</a>
+  
+
+  
+
+  
+    <a href="/2020/10/10/2020-10-10/" class="next">下一篇 2020.10.10 &rarr;</a>
+  
+</nav>
+
+  <!-- JiaThis Button BEGIN -->
+
+<!-- JiaThis Button END -->
+
+
+      
+      
+    </div>
+  </div>
+
+  <div id="bottom-outer">
+    <div id="bottom-inner">
+    <span id="busuanzi_container_site_uv">
+        欢迎你，第<span id="busuanzi_value_site_uv"></span>个小饼干
+      </span>
+      <br>
+      Site by Simone using
+      <a href="http://hexo.io">Hexo</a> & <a href="https://github.com/stiekel/hexo-theme-random">Random</a>
+      <br>
+      
+        &copy;
+        
+
+        2019
+        
+         - 2020
+        
+      
+      <a style="color: #888;" href="/index.html">饼干大超人</a>
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+<div id="user-card">
+  <div class="center-field">
+    <img class="avatar" src="/img/avatar.jpg">
+    <p id="description">饼干大超人</p>
+    <ul class="social-icon">
+  
+  
+    <li>
+      <a href="https://github.com/C1499">
+        
+          <i class="icon iconfont github">&#xe606;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="mailto:1499832767@qq.com">
+        
+          <i class="icon iconfont mail">&#60212;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="/atom.xml">
+        
+          <i class="icon iconfont rss">&#xe60e;</i>
+        
+      </a>
+    </li>
+  
+</ul>
+  </div>
+</div>
+
+
+<div id="btn-view">Hide</div>
+
+<script>
+// is trigger analytics / tongji script
+var isIgnoreHost = false;
+
+if(window && window.location && window.location.host) {
+  isIgnoreHost = ["localhost","127.0.0.1"].some(function(address){
+    return 0 === window.location.host.indexOf(address);
+  });
+}
+
+var isTriggerAnalytics = !( true && isIgnoreHost );
+
+</script>
+
+
+
+
+  
+  
+    <script src="/js/jquery-2.2.3.min.js"></script>
+  
+    <script src="/js/vegas.min.js"></script>
+  
+    <script src="/js/random.js"></script>
+  
+    <script src="/js/highlight.pack.js"></script>
+  
+    <script src="/js/jquery.mousewheel.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox-thumbs.js"></script>
+  
+    <script src="/js/plyr.js"></script>
+  
+    <script src="/js/clipboard.min.js"></script>
+  
+    <script src="/js/clipboard-use.js"></script>
+  
+
+<script>
+
+  // fancybox
+  var backgroundImages = [];
+  
+  $('#post').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox') || $(this).parent().hasClass('fancybox-thumb')) return;
+      var alt = this.alt || this.title;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'post' + i);
+    });
+  });
+  $(".fancybox").fancybox();
+
+var vegasConfig = {"preload­Image":true,"transition":["flash"],"timer":false,"delay":5000,"shuffle":true,"count":12};
+var unsplashConfig = {"gravity":"center"};
+// is show background images
+var turnoffBackgroundImage = false;
+
+
+
+
+var backgroundColor = "34495E";
+
+$(".fancybox-thumb").fancybox({
+  prevEffect: 'none',
+  nextEffect: 'none',
+  helpers: {
+    title: {
+      type: 'outside'
+    },
+    thumbs: {
+      width: 50,
+      height: 50
+    }
+  }
+});
+
+// show video with plyr
+$(".video-container iframe").each(function(i){
+  var url = $(this).attr('src');
+  var id = url.split('/').pop();
+  var plyrContainer = document.createElement('div');
+  plyrContainer.className = 'plyr';
+  var plyrElement = document.createElement('div');
+  plyrElement.dataset.videoId = id;
+  switch(true) {
+    case url.search('youtube.com') >= 0:
+      plyrElement.dataset.type = 'youtube';
+      break;
+    case url.search('vimeo.com') >= 0:
+      plyrElement.dataset.type = 'vimeo';
+      break;
+    default:
+      return;
+  };
+  plyrContainer.appendChild(plyrElement);
+  $(this).parent().html(plyrContainer);
+});
+plyr.setup('.plyr', {iconUrl: '/css/sprite.svg'});
+</script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/hibiki.model.json"},"display":{"position":"right","width":75,"height":175},"mobile":{"show":false,"scale":0.3},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false});</script></body></html>

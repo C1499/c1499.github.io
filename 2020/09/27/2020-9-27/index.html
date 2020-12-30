@@ -1,0 +1,437 @@
+
+
+
+
+
+                                                                                                                                          
+
+<!doctype html>
+<html lang="zh-CN,en,default">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="author" content="Simone">
+  
+  
+  
+  
+    <meta name="description" content="JAVA多态性含义：一个事物的多种形态在Java中，父类的引用可以指向子类的对象，通过此引用调用的方法为子类重写的方法（没有重写的也可以，但那就没必要了）使用：虚拟方法调用，编译看左边，运行看右边。当父类中不存在子类中有的方法时，无法调用。属性的调用还是父类的属性。使用前提：1. 类的继承性 2. 方法重写  
+虚拟方法调用定义：子类中定义了与父类同名同参数的方法，在多态的情况下，此时父类的...">
+  
+  <title>2020.9.27 [ 饼干大超人 ]</title>
+  
+    <link rel="alternate" href="/atom.xml" title="饼干大超人">
+  
+  
+    <link rel="shortcut icon" href="/img/favicon.ico">
+  
+  
+  <link rel="stylesheet" href="/css/random.css">
+<link rel="stylesheet" href="/css/vegas.min.css">
+<link rel="stylesheet" href="/css/highlight-railscasts.css">
+<link rel="stylesheet" href="/css/jquery.fancybox.css">
+<link rel="stylesheet" href="/css/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/jquery.fancybox-thumbs.css">
+<link rel="stylesheet" href="/css/plyr.css">
+<link rel="stylesheet" href="/css/sousuo.css">
+  
+  <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+  <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+  <style>
+    .pace .pace-progress {
+        background: #7ebfff; /*進度條顏色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*陰影顏色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上邊框顏色*/
+        border-left-color: #1E92FB;    /*左邊框顏色*/
+    }
+</style>
+</head>
+
+<body>
+<div class="side-navigate hide-area">
+  
+    <div class="item prev">
+      <a href="/2020/09/29/2020-9-29/">
+        <div class="item-icon"></div>
+      </a>
+    
+    </div>
+  
+  
+    <div class="item next">
+      <a href="/2020/09/22/2020-9-22/">
+        <div class="item-icon"></div>
+      </a>
+    
+    </div>
+  
+</div>
+<div id="outer-container" class="hide-area">
+<div id="container">
+  <div id="menu-outer" class="slide-down">
+    <div id="menu-inner">
+      <div id="brand">
+        
+        <a onclick="openUserCard()">
+          <img id="avatar" src="/img/avatar.jpg">
+          <div id="homelink">饼干大超人</div>
+        </a>
+      </div>
+      <div id="menu-list">
+        <ul>
+        
+        
+          
+            <li>
+          
+            <a href="/index.html">首页</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/archives">文章</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/tags">标签</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/categories">分类</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/about">关于</a>
+            
+          </li>
+        
+          <li style="font-weight: normal;">
+          <a class="icon iconfont sousuo" href="/search">&#59319;
+          </a></li>
+          </ul>
+      </div>
+      <div id="show-menu">
+        <button>Menu</button>
+      </div>
+    </div>
+  </div>
+  <div id="content-outer">
+    <div id="content-inner">
+      
+      
+  
+
+  <article id="post" style="text-align: center">
+    <h1>2020.9.27</h1>
+    <p class="page-title-sub">
+      <span id="post-title-date">撰写于 2020-09-27</span>
+      
+        <span id="post-title-updated">修改于 2020-12-30</span>
+        <span id="busuanzi_container_page_pv">
+        本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+        </span>
+      <br>
+      
+      
+      <span id="post-title-categories">分类
+      
+      
+        
+        
+        <a href="/categories/日常记录/">日常记录</a>
+      
+      </span>
+      
+      
+      <span id="post-title-tags">
+      标签
+      
+      
+        
+        
+        <a href="/tags/日常记录/">日常记录</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/2020/">2020</a>
+      
+      </span>
+      
+    </p>
+    
+    <div class="pace-divn">
+    <h1 id="JAVA"><a href="#JAVA" class="headerlink" title="JAVA"></a>JAVA</h1><h2 id="多态性"><a href="#多态性" class="headerlink" title="多态性"></a>多态性</h2><p>含义：一个事物的多种形态<br>在Java中，父类的引用可以指向子类的对象，通过此引用调用的方法为子类重写的方法（没有重写的也可以，但那就没必要了）<br>使用：虚拟方法调用，编译看左边，运行看右边。当父类中不存在子类中有的方法时，无法调用。属性的调用还是父类的属性。<br>使用前提：1. 类的继承性 2. 方法重写  </p>
+<h3 id="虚拟方法调用"><a href="#虚拟方法调用" class="headerlink" title="虚拟方法调用"></a>虚拟方法调用</h3><p>定义：子类中定义了与父类同名同参数的方法，在多态的情况下，此时父类的方法叫虚拟方法。父类根据赋给它不同的子类对象，动态调用属于子类的该方法。在编译期无法确定实际调用的方法。    </p>
+<h2 id="向下转型"><a href="#向下转型" class="headerlink" title="向下转型"></a>向下转型</h2><p>子类的引用指向父类，父类使用强制类型转换符。<br>可能出现ClassCastException的异常。</p>
+<h3 id="instanceof"><a href="#instanceof" class="headerlink" title="instanceof"></a>instanceof</h3><p>使用：a instanceof A<br>判断对象a是否是类A的实例，如果是返回true。为了避免出现异常。</p>
+<h2 id="Object类"><a href="#Object类" class="headerlink" title="Object类"></a>Object类</h2><p>所有Java类的根父类。一个类如果没有使用extends关键字指明其父类，则默认为java.lang.Object类。  </p>
+<h3 id="主要结构"><a href="#主要结构" class="headerlink" title="主要结构"></a>主要结构</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">序号</th>
+<th>方法名</th>
+<th style="text-align:center">类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<p>1|public Object()|构造|构造器<br>2|public boolean equals(Qbject obj)|普通|对象比较<br>3|public int hashCode()|普通|取得Hash码<br>4|public String toString()|普通|对象打印时调用<br>v</p>
+<h2 id="运算符"><a href="#运算符" class="headerlink" title="== 运算符"></a>== 运算符</h2><ol>
+<li>可以使用在基本数据类型变量和引用数据类型变量中</li>
+<li>如果比较的是基本数据类型变量：比较两个变量保存的数据是否相等（不一定类型相等）。</li>
+<li>如果比较的是引用类型变量：比较两个对象地址值是否相同，即两个引用是否指向同一个对象实体。<h2 id="equals-方法"><a href="#equals-方法" class="headerlink" title="equals()方法"></a>equals()方法</h2></li>
+<li>只适用于引用数据类型</li>
+<li>Object类中定义的equals()和==的作用是相同的，比较两个对象的地址值是否相同</li>
+<li>像String、Date、File、包装类等都重写了Object类的equals()方法，比较的是两个对象的实体内容是否相同。</li>
+<li>通常情况下，我们自定义的类如果使用equals()的话，也通常是比较两个对象‘实体内容’是否相同，我们需要对此方法进行重写。  <h3 id="重写equals-方法的原则"><a href="#重写equals-方法的原则" class="headerlink" title="重写equals()方法的原则"></a>重写equals()方法的原则</h3>对称性、自反性、传递性、一致性</li>
+</ol>
+
+    </div>
+  </article>
+  <div class="page-title-sub">    
+      
+      
+      <ul class="post-copyright" style="padding-inline-start: 27px;">
+        <li class="post-copyright-author">
+          <strong>本文作者：</strong>Simone
+        </li>
+        <li class="post-copyright-link">
+          <strong>本文链接：</strong>
+          <a href="/2020/09/27/2020-9-27/" title="2020.9.27">2020/09/27/2020-9-27/</a>
+        </li>
+        <li class="post-copyright-license">
+          <strong>版权声明： </strong>
+          本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0 CN</a> 许可协议。转载请注明出处！
+        </li>
+        </ul>
+      
+    </div>
+  <div class="random-toc-area">
+  <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">显示目录</button>
+  <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">隐藏目录</button>
+  <div class="random-toc">
+    <h2>目录</h2>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JAVA"><span class="toc-text">JAVA</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#多态性"><span class="toc-text">多态性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#虚拟方法调用"><span class="toc-text">虚拟方法调用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#向下转型"><span class="toc-text">向下转型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#instanceof"><span class="toc-text">instanceof</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Object类"><span class="toc-text">Object类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#主要结构"><span class="toc-text">主要结构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#运算符"><span class="toc-text">== 运算符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#equals-方法"><span class="toc-text">equals()方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#重写equals-方法的原则"><span class="toc-text">重写equals()方法的原则</span></a></li></ol></li></ol></li></ol>
+  </div>
+</div>
+
+  
+<nav id="pagination">
+  
+    <a href="/2020/09/29/2020-9-29/" class="prev">&larr; 上一篇 2020.9.29</a>
+  
+
+  
+
+  
+    <a href="/2020/09/22/2020-9-22/" class="next">下一篇 2020.9.22 &rarr;</a>
+  
+</nav>
+
+  <!-- JiaThis Button BEGIN -->
+
+<!-- JiaThis Button END -->
+
+
+      
+      
+    </div>
+  </div>
+
+  <div id="bottom-outer">
+    <div id="bottom-inner">
+    <span id="busuanzi_container_site_uv">
+        欢迎你，第<span id="busuanzi_value_site_uv"></span>个小饼干
+      </span>
+      <br>
+      Site by Simone using
+      <a href="http://hexo.io">Hexo</a> & <a href="https://github.com/stiekel/hexo-theme-random">Random</a>
+      <br>
+      
+        &copy;
+        
+
+        2019
+        
+         - 2020
+        
+      
+      <a style="color: #888;" href="/index.html">饼干大超人</a>
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+<div id="user-card">
+  <div class="center-field">
+    <img class="avatar" src="/img/avatar.jpg">
+    <p id="description">饼干大超人</p>
+    <ul class="social-icon">
+  
+  
+    <li>
+      <a href="https://github.com/C1499">
+        
+          <i class="icon iconfont github">&#xe606;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="mailto:1499832767@qq.com">
+        
+          <i class="icon iconfont mail">&#60212;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="/atom.xml">
+        
+          <i class="icon iconfont rss">&#xe60e;</i>
+        
+      </a>
+    </li>
+  
+</ul>
+  </div>
+</div>
+
+
+<div id="btn-view">Hide</div>
+
+<script>
+// is trigger analytics / tongji script
+var isIgnoreHost = false;
+
+if(window && window.location && window.location.host) {
+  isIgnoreHost = ["localhost","127.0.0.1"].some(function(address){
+    return 0 === window.location.host.indexOf(address);
+  });
+}
+
+var isTriggerAnalytics = !( true && isIgnoreHost );
+
+</script>
+
+
+
+
+  
+  
+    <script src="/js/jquery-2.2.3.min.js"></script>
+  
+    <script src="/js/vegas.min.js"></script>
+  
+    <script src="/js/random.js"></script>
+  
+    <script src="/js/highlight.pack.js"></script>
+  
+    <script src="/js/jquery.mousewheel.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox-thumbs.js"></script>
+  
+    <script src="/js/plyr.js"></script>
+  
+    <script src="/js/clipboard.min.js"></script>
+  
+    <script src="/js/clipboard-use.js"></script>
+  
+
+<script>
+
+  // fancybox
+  var backgroundImages = [];
+  
+  $('#post').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox') || $(this).parent().hasClass('fancybox-thumb')) return;
+      var alt = this.alt || this.title;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'post' + i);
+    });
+  });
+  $(".fancybox").fancybox();
+
+var vegasConfig = {"preload­Image":true,"transition":["flash"],"timer":false,"delay":5000,"shuffle":true,"count":12};
+var unsplashConfig = {"gravity":"center"};
+// is show background images
+var turnoffBackgroundImage = false;
+
+
+
+
+var backgroundColor = "34495E";
+
+$(".fancybox-thumb").fancybox({
+  prevEffect: 'none',
+  nextEffect: 'none',
+  helpers: {
+    title: {
+      type: 'outside'
+    },
+    thumbs: {
+      width: 50,
+      height: 50
+    }
+  }
+});
+
+// show video with plyr
+$(".video-container iframe").each(function(i){
+  var url = $(this).attr('src');
+  var id = url.split('/').pop();
+  var plyrContainer = document.createElement('div');
+  plyrContainer.className = 'plyr';
+  var plyrElement = document.createElement('div');
+  plyrElement.dataset.videoId = id;
+  switch(true) {
+    case url.search('youtube.com') >= 0:
+      plyrElement.dataset.type = 'youtube';
+      break;
+    case url.search('vimeo.com') >= 0:
+      plyrElement.dataset.type = 'vimeo';
+      break;
+    default:
+      return;
+  };
+  plyrContainer.appendChild(plyrElement);
+  $(this).parent().html(plyrContainer);
+});
+plyr.setup('.plyr', {iconUrl: '/css/sprite.svg'});
+</script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/hibiki.model.json"},"display":{"position":"right","width":75,"height":175},"mobile":{"show":false,"scale":0.3},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false});</script></body></html>

@@ -1,0 +1,454 @@
+
+
+
+
+
+                                                                                                                                          
+
+<!doctype html>
+<html lang="zh-CN,en,default">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="author" content="Simone">
+  
+  
+  
+  
+    <meta name="description" content="JAVAMVC设计模式MVC是常用的设计模式之一，将程序分为三层，降低程序耦合性。 
+
+M 是 数据模型层 ModelV 是 视图模型层 ViewC 是 控制器层 Controller
+
+model层 主要处理数据：
+数据对象封装 model.bean/domain数据库操作对象 model.dao数据库 model.db
+
+controller层 处理业务逻辑：
+应用界面相关 contro...">
+  
+  <title>2020.9.21 [ 饼干大超人 ]</title>
+  
+    <link rel="alternate" href="/atom.xml" title="饼干大超人">
+  
+  
+    <link rel="shortcut icon" href="/img/favicon.ico">
+  
+  
+  <link rel="stylesheet" href="/css/random.css">
+<link rel="stylesheet" href="/css/vegas.min.css">
+<link rel="stylesheet" href="/css/highlight-railscasts.css">
+<link rel="stylesheet" href="/css/jquery.fancybox.css">
+<link rel="stylesheet" href="/css/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/jquery.fancybox-thumbs.css">
+<link rel="stylesheet" href="/css/plyr.css">
+<link rel="stylesheet" href="/css/sousuo.css">
+  
+  <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+  <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+  <style>
+    .pace .pace-progress {
+        background: #7ebfff; /*進度條顏色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*陰影顏色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上邊框顏色*/
+        border-left-color: #1E92FB;    /*左邊框顏色*/
+    }
+</style>
+</head>
+
+<body>
+<div class="side-navigate hide-area">
+  
+    <div class="item prev">
+      <a href="/2020/09/22/2020-9-22/">
+        <div class="item-icon"></div>
+      </a>
+    
+    </div>
+  
+  
+    <div class="item next">
+      <a href="/2020/09/18/2020-9-18/">
+        <div class="item-icon"></div>
+      </a>
+    
+    </div>
+  
+</div>
+<div id="outer-container" class="hide-area">
+<div id="container">
+  <div id="menu-outer" class="slide-down">
+    <div id="menu-inner">
+      <div id="brand">
+        
+        <a onclick="openUserCard()">
+          <img id="avatar" src="/img/avatar.jpg">
+          <div id="homelink">饼干大超人</div>
+        </a>
+      </div>
+      <div id="menu-list">
+        <ul>
+        
+        
+          
+            <li>
+          
+            <a href="/index.html">首页</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/archives">文章</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/tags">标签</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/categories">分类</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/about">关于</a>
+            
+          </li>
+        
+          <li style="font-weight: normal;">
+          <a class="icon iconfont sousuo" href="/search">&#59319;
+          </a></li>
+          </ul>
+      </div>
+      <div id="show-menu">
+        <button>Menu</button>
+      </div>
+    </div>
+  </div>
+  <div id="content-outer">
+    <div id="content-inner">
+      
+      
+  
+
+  <article id="post" style="text-align: center">
+    <h1>2020.9.21</h1>
+    <p class="page-title-sub">
+      <span id="post-title-date">撰写于 2020-09-21</span>
+      
+        <span id="post-title-updated">修改于 2020-12-30</span>
+        <span id="busuanzi_container_page_pv">
+        本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+        </span>
+      <br>
+      
+      
+      <span id="post-title-categories">分类
+      
+      
+        
+        
+        <a href="/categories/日常记录/">日常记录</a>
+      
+      </span>
+      
+      
+      <span id="post-title-tags">
+      标签
+      
+      
+        
+        
+        <a href="/tags/日常记录/">日常记录</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/2020/">2020</a>
+      
+      </span>
+      
+    </p>
+    
+    <div class="pace-divn">
+    <h1 id="JAVA"><a href="#JAVA" class="headerlink" title="JAVA"></a>JAVA</h1><h2 id="MVC设计模式"><a href="#MVC设计模式" class="headerlink" title="MVC设计模式"></a>MVC设计模式</h2><p>MVC是常用的设计模式之一，将程序分为三层，降低程序耦合性。 </p>
+<blockquote>
+<p>M 是 数据模型层 Model<br>V 是 视图模型层 View<br>C 是 控制器层 Controller</p>
+</blockquote>
+<h3 id="model层-主要处理数据："><a href="#model层-主要处理数据：" class="headerlink" title="model层 主要处理数据："></a>model层 主要处理数据：</h3><blockquote>
+<p>数据对象封装 model.bean/domain<br>数据库操作对象 model.dao<br>数据库 model.db</p>
+</blockquote>
+<h3 id="controller层-处理业务逻辑："><a href="#controller层-处理业务逻辑：" class="headerlink" title="controller层 处理业务逻辑："></a>controller层 处理业务逻辑：</h3><blockquote>
+<p>应用界面相关 controller.activity<br>存放fragment controller.fragment<br>显示列表的适配器 controller.adapter<br>服务相关 controller.service<br>抽取的基类 controller.base</p>
+</blockquote>
+<h3 id="view层-显示数据："><a href="#view层-显示数据：" class="headerlink" title="view层 显示数据："></a>view层 显示数据：</h3><blockquote>
+<p>相关工具类 view.utils<br>自定义view view.ui</p>
+</blockquote>
+<h2 id="import-关键字"><a href="#import-关键字" class="headerlink" title="import 关键字"></a>import 关键字</h2><p>import:导入</p>
+<ol>
+<li>在源文件中显式的使用import结构导入指定包下的类、接口</li>
+<li>import的声明在包的声明和类的声明之间</li>
+<li>如果需要导入多个结构，并列写出</li>
+<li>可以使用“xxx.*”的方式，导入xxx包下所有的结构</li>
+<li>如果使用的类或接口是java.lang包下定义，可以不用导入</li>
+<li>如果使用的类或接口是本包下定义的，可以省略import结构 </li>
+<li>如果碰到两个重名的类，有一个需要使用全类名方式显示</li>
+<li>使用“xxx.*”方式调用xxx包下所有所有的结构，但是xxx包下的子包，仍需要显式导入</li>
+<li>import static:导入指定类或接口中静态的结构v</li>
+</ol>
+<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><h3 id="一、继承的好处："><a href="#一、继承的好处：" class="headerlink" title="一、继承的好处："></a>一、继承的好处：</h3><ol>
+<li>减少了代码冗余，提高了代码的复用性</li>
+<li>便于功能的扩展</li>
+<li>为了之后多态性的使用，提供了前提<h3 id="二、继承的格式"><a href="#二、继承的格式" class="headerlink" title="二、继承的格式"></a>二、继承的格式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">class A extends B&#123;</span><br><span class="line">    .....</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>A:子类、派生类，subclass<br>B:父类、基类，superclass  </p>
+<ol>
+<li>体现：一旦子类A继承父类B以后，子类A就获取了父类B中声明的结构、属性、方法。<br>父类中声明为private的属性或方法，子类继承父类以后，仍然获取了父类中的私有结构。只因为有封装性的影响，使得子类不能直接调用父类的结构。</li>
+<li>子类继承父类以后，还可以声明自己特有的属性或方法，实现功能扩展。子类和父类的关系，不同于子集和集合的关系。<h3 id="三、关于继承的规定"><a href="#三、关于继承的规定" class="headerlink" title="三、关于继承的规定"></a>三、关于继承的规定</h3></li>
+<li>一个类可以被多个子类继承</li>
+<li>一个子类不允许有多个父类，这是Java的单继承性</li>
+<li>子父类是相对的概念</li>
+<li>子类继承父类，就获取了直接父类和所有间接父类中声明的属性和方法</li>
+</ol>
+
+    </div>
+  </article>
+  <div class="page-title-sub">    
+      
+      
+      <ul class="post-copyright" style="padding-inline-start: 27px;">
+        <li class="post-copyright-author">
+          <strong>本文作者：</strong>Simone
+        </li>
+        <li class="post-copyright-link">
+          <strong>本文链接：</strong>
+          <a href="/2020/09/21/2020-9-21/" title="2020.9.21">2020/09/21/2020-9-21/</a>
+        </li>
+        <li class="post-copyright-license">
+          <strong>版权声明： </strong>
+          本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0 CN</a> 许可协议。转载请注明出处！
+        </li>
+        </ul>
+      
+    </div>
+  <div class="random-toc-area">
+  <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">显示目录</button>
+  <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">隐藏目录</button>
+  <div class="random-toc">
+    <h2>目录</h2>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JAVA"><span class="toc-text">JAVA</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#MVC设计模式"><span class="toc-text">MVC设计模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#model层-主要处理数据："><span class="toc-text">model层 主要处理数据：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#controller层-处理业务逻辑："><span class="toc-text">controller层 处理业务逻辑：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#view层-显示数据："><span class="toc-text">view层 显示数据：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#import-关键字"><span class="toc-text">import 关键字</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#继承"><span class="toc-text">继承</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、继承的好处："><span class="toc-text">一、继承的好处：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、继承的格式"><span class="toc-text">二、继承的格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、关于继承的规定"><span class="toc-text">三、关于继承的规定</span></a></li></ol></li></ol></li></ol>
+  </div>
+</div>
+
+  
+<nav id="pagination">
+  
+    <a href="/2020/09/22/2020-9-22/" class="prev">&larr; 上一篇 2020.9.22</a>
+  
+
+  
+
+  
+    <a href="/2020/09/18/2020-9-18/" class="next">下一篇 2020.9.18 &rarr;</a>
+  
+</nav>
+
+  <!-- JiaThis Button BEGIN -->
+
+<!-- JiaThis Button END -->
+
+
+      
+      
+    </div>
+  </div>
+
+  <div id="bottom-outer">
+    <div id="bottom-inner">
+    <span id="busuanzi_container_site_uv">
+        欢迎你，第<span id="busuanzi_value_site_uv"></span>个小饼干
+      </span>
+      <br>
+      Site by Simone using
+      <a href="http://hexo.io">Hexo</a> & <a href="https://github.com/stiekel/hexo-theme-random">Random</a>
+      <br>
+      
+        &copy;
+        
+
+        2019
+        
+         - 2020
+        
+      
+      <a style="color: #888;" href="/index.html">饼干大超人</a>
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+<div id="user-card">
+  <div class="center-field">
+    <img class="avatar" src="/img/avatar.jpg">
+    <p id="description">饼干大超人</p>
+    <ul class="social-icon">
+  
+  
+    <li>
+      <a href="https://github.com/C1499">
+        
+          <i class="icon iconfont github">&#xe606;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="mailto:1499832767@qq.com">
+        
+          <i class="icon iconfont mail">&#60212;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="/atom.xml">
+        
+          <i class="icon iconfont rss">&#xe60e;</i>
+        
+      </a>
+    </li>
+  
+</ul>
+  </div>
+</div>
+
+
+<div id="btn-view">Hide</div>
+
+<script>
+// is trigger analytics / tongji script
+var isIgnoreHost = false;
+
+if(window && window.location && window.location.host) {
+  isIgnoreHost = ["localhost","127.0.0.1"].some(function(address){
+    return 0 === window.location.host.indexOf(address);
+  });
+}
+
+var isTriggerAnalytics = !( true && isIgnoreHost );
+
+</script>
+
+
+
+
+  
+  
+    <script src="/js/jquery-2.2.3.min.js"></script>
+  
+    <script src="/js/vegas.min.js"></script>
+  
+    <script src="/js/random.js"></script>
+  
+    <script src="/js/highlight.pack.js"></script>
+  
+    <script src="/js/jquery.mousewheel.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox-thumbs.js"></script>
+  
+    <script src="/js/plyr.js"></script>
+  
+    <script src="/js/clipboard.min.js"></script>
+  
+    <script src="/js/clipboard-use.js"></script>
+  
+
+<script>
+
+  // fancybox
+  var backgroundImages = [];
+  
+  $('#post').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox') || $(this).parent().hasClass('fancybox-thumb')) return;
+      var alt = this.alt || this.title;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'post' + i);
+    });
+  });
+  $(".fancybox").fancybox();
+
+var vegasConfig = {"preload­Image":true,"transition":["flash"],"timer":false,"delay":5000,"shuffle":true,"count":12};
+var unsplashConfig = {"gravity":"center"};
+// is show background images
+var turnoffBackgroundImage = false;
+
+
+
+
+var backgroundColor = "34495E";
+
+$(".fancybox-thumb").fancybox({
+  prevEffect: 'none',
+  nextEffect: 'none',
+  helpers: {
+    title: {
+      type: 'outside'
+    },
+    thumbs: {
+      width: 50,
+      height: 50
+    }
+  }
+});
+
+// show video with plyr
+$(".video-container iframe").each(function(i){
+  var url = $(this).attr('src');
+  var id = url.split('/').pop();
+  var plyrContainer = document.createElement('div');
+  plyrContainer.className = 'plyr';
+  var plyrElement = document.createElement('div');
+  plyrElement.dataset.videoId = id;
+  switch(true) {
+    case url.search('youtube.com') >= 0:
+      plyrElement.dataset.type = 'youtube';
+      break;
+    case url.search('vimeo.com') >= 0:
+      plyrElement.dataset.type = 'vimeo';
+      break;
+    default:
+      return;
+  };
+  plyrContainer.appendChild(plyrElement);
+  $(this).parent().html(plyrContainer);
+});
+plyr.setup('.plyr', {iconUrl: '/css/sprite.svg'});
+</script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/hibiki.model.json"},"display":{"position":"right","width":75,"height":175},"mobile":{"show":false,"scale":0.3},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false});</script></body></html>
