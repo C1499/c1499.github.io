@@ -176,23 +176,30 @@ vsftpd(linux)前面的java、tomcat、maven基本上都是了解过的，这里�
 <li>常用命令：<ul>
 <li>sudo service vsftpd start</li>
 <li>sudo service vsftpd stop</li>
-<li>sudo service vsftpd restart<h3 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h3></li>
+<li>sudo service vsftpd restart</li>
 </ul>
 </li>
+</ol>
+<h3 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h3><ol>
 <li>Nginx是一款轻量级Web服务器、也是一款反向代理服务器。</li>
 <li>具体实现：1.可直接支持Rails和PHP的程序 2.可作为HTTP反向代理服务器 3.作为负载均衡服务器 4.作为邮件代理服务器 5.帮助实现前端动静分离</li>
 <li>常用命令<ul>
 <li>安装路径下/nginx/sbin/nginx -t  :测试配置文件</li>
 <li>安装路径下/nginx/sbin/nginx      :启动命令</li>
 <li>安装路径下/nginx/sbin/nginx -s stop 或者 nginx -s quit    :停止命令</li>
-<li>安装路径下/nginx/sbin/nginx -s reload     :重启命令<h3 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h3>记录我从中学到的linux命令</li>
+<li>安装路径下/nginx/sbin/nginx -s reload     :重启命令</li>
 </ul>
 </li>
+</ol>
+<h3 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h3><p>记录我从中学到的linux命令</p>
+<ol>
 <li>rpm -qa|grep xxxx :这条命令是判断是否安装了xx软件，返回已安装xx软件的版本号</li>
 <li>mkdir xxx :创建一个文件夹</li>
 <li>cp -r xx ss/ :拷贝xx文件夹所有内容到ss目录下</li>
 <li>ps -ef|grep xxxx :查看xxxx进程</li>
-<li>kill -HUP  xxx进程号  :查看到进程号再使用此命令达到平滑重启<h3 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h3></li>
+<li>kill -HUP  xxx进程号  :查看到进程号再使用此命令达到平滑重启</li>
+</ol>
+<h3 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h3><ol>
 <li>权限：dql-select,dml-insert update delete ddl-create table create view dcl-grant</li>
 <li>mysql -u root -p :Linux下进入MySQL</li>
 <li>select user,host,password from mysql.user 查看当前mysql的用户</li>
